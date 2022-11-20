@@ -4,20 +4,38 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "DBUG=app node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "DEBUG=app nodemon app.js",
+    "debug": "Debug=* nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint app.js"
   },
   "author": "",
   "license": "IS C",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "chalk": "^4.1.2",
     "debug": "^4.3.4",
+    "ejs": "^3.1.8",
+    "eslint": "^4.19.1",
     "express": "^4.18.2",
+    "jquery": "^3.3.1",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0"
   },
   "nodemonConfig": {
     "restartable": "rs",
-    "delay": 2500
+    "delay": 2500,
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 4000
+    }
   }
 }
